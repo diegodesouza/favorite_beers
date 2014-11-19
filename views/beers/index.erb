@@ -1,1 +1,7 @@
-HELLO WORLD
+<h3>All the beers!</h3>
+
+<ul>
+  <% @beers.each do |beer| %>
+    <li><%= beer[:name] %></li>
+  <% end %>
+</ul>
