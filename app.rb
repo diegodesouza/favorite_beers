@@ -36,7 +36,7 @@ post '/beers' do
   # {"beer"=>{"name"=>"Pumpkinhead", "description"=>"Delicious!"}}
 
   # take the beer params from params hash
-  if !params[:beer][:name].empty?
+  if !params[:beer][:name].empty? && !params[:beer][:description].empty?
     name = params[:beer][:name]
     description = params[:beer][:description]
 
@@ -46,10 +46,21 @@ post '/beers' do
     # redirect the user to the index page
     redirect '/beers'
   else
-    @error_message = "You must enter a name."
+    @error_messages = []
+    @error_messages << "You must enter a name." if params[:beer][:name].empty?
+    @error_messages << "You must enter a description." if params[:beer][:description].empty?
+    # if params[:beer][:name].empty?
+    #   @error_messages << "You must enter a name."
+    # end
+
     erb :'beers/new'
   end
 end
+
+
+
+
+
 
 
 

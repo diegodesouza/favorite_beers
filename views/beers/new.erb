@@ -1,9 +1,11 @@
 <h3>Add your favorite beer!</h3>
 
-<% if @error_message %>
-  <div class="error">
-    <%= @error_message %>
-  </div>
+<% if @error_messages %>
+  <ul class="error">
+    <% @error_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <div>
