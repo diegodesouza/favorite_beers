@@ -20,3 +20,12 @@ get '/beers' do
   @beers = read_beers_from('beers.csv')
   erb :'beers/index'
 end
+
+get '/beers/new' do
+  erb :'beers/new'
+end
+
+
+
+
+
