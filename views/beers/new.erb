@@ -12,11 +12,11 @@
   <form method="post" action="/beers">
     <div>
       <label for="beer_name">Name:</label>
-      <input type="text" id="beer_name" name="beer[name]">
+      <input type="text" id="beer_name" placeholder="Add your beer!" name="beer[name]" value=<%= @name %>>
     </div>
     <div>
       <label for="beer_description">Description:</label>
-      <input type="text" id="beer_description" name="beer[description]">
+      <input type="text" id="beer_description" name="beer[description]" value=<%= @description %>>
     </div>
 
     <div>
