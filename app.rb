@@ -25,6 +25,22 @@ get '/beers/new' do
   erb :'beers/new'
 end
 
+post '/beers' do
+  # params looks like this:
+  # {"beer"=>{"name"=>"Pumpkinhead", "description"=>"Delicious!"}}
+
+  # take the beer params from params hash
+  name = params[:beer][:name]
+  description = params[:beer][:description]
+
+  # add the beer to the CSV
+  CSV.open('beers.csv', 'a') do |csv|
+    csv << [name, description]
+  end
+
+  # redirect the user to the index page
+  redirect '/beers'
+end
 
 
 
